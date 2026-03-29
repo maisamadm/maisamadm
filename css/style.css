@@ -144,7 +144,7 @@ main {
 }
 
 .nav-content {
-  min-height: 100px; /* safer than fixed height */
+  min-height: 100px; /* safer than fixeheight */
   display: flex;
   align-items: center;
   position: relative;
