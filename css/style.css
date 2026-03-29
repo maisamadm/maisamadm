@@ -1,0 +1,529 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+@font-face {
+  font-family: 'Warbler';
+  src: url('warbler-font-family/WarblerDeck-Regular-Testing-BF674fd386b2031.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo';
+  src: url(museo-100/Museo-100/Museo\ 100.otf) format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+    --background-claro-color: #F8F6F0;
+    --fonte-escura: #392617;
+    --fundo-botao: #53838f;
+    --hover-color: #AD0048;
+}
+
+
+.page-container {
+  max-width: 112.5rem;
+  margin: 0 auto;
+  
+  
+  
+}
+
+body {
+    font-family: 'Warbler', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    background: var(--background-claro-color);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    color: var(--fonte-escura)
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: 0.5s;
+
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+ul {
+    list-style: none;
+    
+
+}
+
+.bullet {
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 1em;
+}
+
+ol {
+    padding-top: 20px;
+    padding-left: 2em;
+
+}
+
+ol ::marker {
+    font-weight: 400;
+    color: #000000;
+}
+
+li {
+    margin-bottom: 0px;
+
+}
+
+/* imagens */
+
+img {
+    margin: auto auto;
+    display: block;
+    max-width: 100%;
+    
+}
+
+.sideimg-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* h's */
+h1 {
+    
+    color: #333;
+    
+}
+
+h2 {
+    margin-top: 1em;
+    color: #333; 
+}
+
+h3 {
+    margin-top: 0.8em;
+    padding-top: 0.8em;
+    color: #333;
+}
+
+h4 {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    color: #333;
+}
+
+p {
+    
+    padding-top: 1.2em;
+    text-align: justify;
+}
+
+main {
+    max-width: 50em;
+    margin: 0px auto;
+    padding-bottom: 5vh;
+    
+    
+}
+
+.navbar {
+  width: 100%;
+  
+}
+
+.nav-content {
+  min-height: 100px; /* safer than fixed height */
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 97.5rem;
+}
+
+/* Logo on the left */
+.logo img {
+    padding-left: 0.2em;
+  height: 90px; /* adjust as needed */
+}
+
+/* Center menu regardless of logo width */
+.main-menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;                 /* add this */
+    transform: translate(-50%, -50%); /* update */
+}
+
+.main-menu ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu a {
+  text-decoration: none;
+}
+
+.navbar-icons-right {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  right: 20px;
+}
+
+.navbar-icons-right a {
+  font-size: 1.5rem;
+  color: var(--fonte-escura);
+}
+
+.bottom-nav-bar {
+    background: #F8F6F0; /* Cor do topo */
+    height: 10px;        /* Altura real da faixa */
+    width: 100%;
+    
+}
+
+
+/* carrosel */
+.container-carrosel{
+    padding: 0em;
+}
+.slider-wrapper {
+    position: relative;
+    max-width: 97rem;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 3.55/1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.7rem hsla(0, 0%, 0%, 0.25);
+    border-radius: 0.5rem;
+
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none; 
+
+}
+
+.slider::-webkit-scrollbar {
+    display: none;              /* Chrome, Safari, Opera */
+}
+
+.slider img {
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; 
+
+    
+}
+
+.slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #fff;
+    border-radius: 50%;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+    
+}
+
+.slider-nav a:hover {
+    opacity: 1;
+}
+
+/* section de faixa */
+
+/* The Outer Container */
+.container-faixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    max-width: 98rem;
+    min-height: 100px; /* Increased height so elements aren't squashed */
+    width: 100%;
+}
+
+/* The Inner Content Wrapper - Controls the spacing */
+.faixa-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* CHANGE THIS VALUE to control the gap between h4, h2, and button */
+    gap: 1.2rem; 
+}
+
+/* Remove default browser margins to ensure 'gap' is the only thing moving them */
+.faixa-content p{
+    margin: 0;
+    font-size: 18px;
+} 
+.faixa-content h2 {
+    margin: 0;
+    font-size: larger;
+}
+
+.container-faixa button {
+    padding: 1rem 7rem;
+    font-size: 1.2rem;
+    background-color: var(--fundo-botao);
+    color: var(--background-claro-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-top: 1.5 rem;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease-in-out;
+
+}
+
+.container-faixa button:hover {
+    background-color: var(--hover-color);
+    
+}
+
+/* section de originais */
+.artworks-section {
+  padding: 2rem 0;
+  max-width: 98rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.view-all {
+  color: var(--fonte-escura);
+  font-size: 1rem;
+}
+
+.artworks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.artwork-card {
+  position: relative;
+  background: var(--background-claro-color);
+}
+
+.artwork-card img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.9rem;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.artwork-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.quick-add {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.artwork-card h3 {
+  font-size: 1rem;
+  margin: 0rem 0rem 0.0rem 0rem;
+  color: var(--fonte-escura);
+  text-align: left;
+  margin: 0; 
+  padding-top: 0.8rem;
+}
+
+.price {
+  color: #c9a961;
+  font-size: medium;
+  margin: 0 0rem;
+  text-align: left;
+  margin: 0; 
+  padding-top: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+  .artworks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* section de imagem antes do footer */
+.img-bfooter {
+    /* 1. Force the width to the edge of the screen */
+    width: 100vw;
+    
+    /* 2. Break out of parent constraints */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+
+    /* 3. Define the height */
+    height: 700px;
+    
+    /* 4. Ensure the image STRETCHES to fill the 100vw */
+    display: block;
+}
+
+.img-bfooter img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This prevents the image from looking distorted while stretching */
+}
+
+
+/* footer */
+.footer {
+    width: 100%; /* Full viewport width */
+    position: static;
+    padding-top: 6vh;
+    padding-bottom: 30vh;
+    background-color: #D2ECF1;
+
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 98rem;
+    margin: 0 auto;
+}
+.footer h4 {
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+footer ul li {
+    line-height: 1.1;
+}
+
+.footer a {
+    color: #ccc;
+}
+
+.footer i {
+    font-size: 2.5em;
+    padding-right: 20px;
+}
+
+/* Control the list spacing and alignment */
+.footer h5 {
+    margin-top: 1rem;       /* EXACT control over the space between links */
+}
+.footer ul {
+    margin-top: 6rem; 
+    list-style: none;
+    padding: 0;       /* Removes the 40px default gap */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;        /* EXACT control over the space between links */
+}
+
+.footer ul li {
+    margin-top: 0.1rem; 
+    
+
+}
+
+.footer ul li a{
+    color: var(--fonte-escura);
+    font-size: medium;
+
+}
+
+/* Control the column balance */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4rem;        /* Increased gap for a cleaner look */
+    align-items: start; /* Keeps headers aligned at the top */
+}
+
+.footer-grid .visions h4{
+    color: var(--fonte-escura);
+    line-height: 1.6; /* Prevents the long text from looking cramped */
+    font-size: medium;
+}
+
+.footer-grid .visions p {
+    color: var(--fonte-escura);
+    line-height: 1.6; /* Prevents the long text from looking cramped */
+    font-size: medium;
+}
+
+.footer-subscribe {
+    /* Tell the button to sit in the 5th column */
+    grid-column: 5;
+    /* Push it to the right side of that colun */
+    justify-self: end; 
+    /* Add space above so it sits below he txt */
+    margin-top: -4rem; 
+    
+    /* Your styling */
+    padding: 1rem 3rem;
+    background-color: var(--fundo-botao);
+    color: var(--background-claro-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
